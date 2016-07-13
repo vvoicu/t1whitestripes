@@ -47,6 +47,10 @@ public class EvoPortalTestMarius {
     	inboxSteps.clickOnCheckBoxMultiple();
     	inboxSteps.clickOnCheckBoxMultiple();
     	inboxSteps.clickOnLineRequest();
+    	inboxSteps.clickOnRejectButtonInsideRequest();
+    	inboxSteps.clickOnLineRequest();
+    	inboxSteps.clickOnApproveButtonInsideRequest();
+    	inboxSteps.clickOnLineRequest();
     }
 
 }

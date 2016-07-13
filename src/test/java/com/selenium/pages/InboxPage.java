@@ -27,7 +27,13 @@ public class InboxPage extends PageObject{
 	
 	@FindBy(css = "tbody tr:last-child td:last-child a") 
 	private WebElementFacade lineRequest;
-		
+	
+	@FindBy(css= "div > span:nth-child(1) > span > input")
+	private WebElementFacade approveBtnInForm;
+	
+	@FindBy(css= "div > span:last-child > span > input")
+	private WebElementFacade rejectBtnInForm;
+	
 	public void clickOnVacation(){
 		vacationLi.click();
 	}
@@ -54,6 +60,14 @@ public class InboxPage extends PageObject{
 	
 	public void clickOnLineRequest(){
 		lineRequest.click();
+	}
+	
+	public void clickOnApproveButtonInsideRequest(){
+		approveBtnInForm.click();
+	}
+	
+	public void clickOnRejectButtonInsideRequest(){
+		rejectBtnInForm.click();
 	}
 }
 

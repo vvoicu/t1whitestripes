@@ -36,4 +36,12 @@ public class InboxSteps extends ScenarioSteps {
 	public void clickOnLineRequest(){
 		inboxPage.clickOnLineRequest();
 	}
+	
+	public void clickOnApproveButtonInsideRequest(){
+		inboxPage.clickOnApproveButtonInsideRequest();
+	}
+	
+	public void clickOnRejectButtonInsideRequest(){
+		inboxPage.clickOnRejectButtonInsideRequest();
+	}
 }
