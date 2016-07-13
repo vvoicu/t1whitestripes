@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.selenium.steps.InboxSteps;
 import com.selenium.steps.LogInSteps;
 import com.selenium.steps.VacationSteps;
 
@@ -25,7 +26,9 @@ public class EvoPortalTestMarius {
     String url = "http://172.22.4.88:9090/login";
     String userName = "marius.chesovan";
     String passWord = "010485";
-
+    
+    @Steps
+    public InboxSteps inboxSteps;
     
     @Test
     public void evoPortalVacation(){
@@ -33,7 +36,17 @@ public class EvoPortalTestMarius {
     	logInSteps.enterUserName(userName);
     	logInSteps.enterPassword(passWord);
     	logInSteps.clickOnSingInButton();
-
+    	inboxSteps.clickOnVacation();
+    	inboxSteps.clickOnInbox();
+    	inboxSteps.clickOnCheckBox();
+    	inboxSteps.clickOnCheckBox();
+    	inboxSteps.clickOnCheckBox();
+    	inboxSteps.clickOnApproveButton();
+    	inboxSteps.clickOnCheckBox();
+    	inboxSteps.clickOnRejectButton();
+    	inboxSteps.clickOnCheckBoxMultiple();
+    	inboxSteps.clickOnCheckBoxMultiple();
+    	inboxSteps.clickOnLineRequest();
     }
 
 }
