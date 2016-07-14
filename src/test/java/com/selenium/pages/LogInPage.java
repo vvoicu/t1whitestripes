@@ -18,7 +18,8 @@ WebElementFacade singIn;
 
 	
 public void enterUserName(String text){
-	userName.type(text);
+	userName.sendKeys(text);
+	
 }
 public void enterPassword(String text){
 	password.type(text);
