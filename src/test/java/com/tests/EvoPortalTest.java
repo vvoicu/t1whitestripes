@@ -30,6 +30,7 @@ public class EvoPortalTest {
     String passWord = "test1";
     String text = "Filter requests";
     
+    
     @Test
     public void evoPortalVacation(){
     	logInSteps.openEvoPortalPage(url);
@@ -43,6 +44,11 @@ public class EvoPortalTest {
     	myRequestsSteps.clickOnOneToFiveCheckBox();
     	myRequestsSteps.clickOnPendingCheckBox();
     	myRequestsSteps.clickOnApplyButton();
+    	myRequestsSteps.clickOnHolidayCheckBox();
+    	myRequestsSteps.clickOnOneToFiveCheckBox();
+    	myRequestsSteps.clickOnPendingCheckBox();
+    	myRequestsSteps.clickOnApplyButton();
+    	
     	
     }
 
