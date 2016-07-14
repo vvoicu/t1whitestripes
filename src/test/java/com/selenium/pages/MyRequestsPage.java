@@ -146,6 +146,11 @@ public class MyRequestsPage extends PageObject {
 			}
 		}
 	}
+	public void assertTextInStateVacationRequest(String assertText){
+		WebElement element = getDriver().findElement(By.cssSelector("div.view-vacation > div.content-title"));
+		System.out.println("1 : "+element.getText());
+		Assert.assertTrue(element.getText().contains(assertText));
+	}
 	public void clickOnShowOnlyFutureVacationsCheckBox(){
 		WebElement showOnlyFutureVacationsCheckBox = getDriver().findElement(By.cssSelector("input[id$='futureVacationsCheckbox']"));
 		showOnlyFutureVacationsCheckBox.click();

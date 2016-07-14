@@ -56,7 +56,12 @@ public class MyRequestsSteps extends ScenarioSteps {
 		myRequestsPage.clickOnNameInTableList(name);
 	}
 	@Step
+	public void assertTextInStateVacationRequest(String assertText){
+		myRequestsPage.assertTextInStateVacationRequest(assertText);
+	}
+	@Step
 	public void clickOnShowOnlyFutureVacationsCheckBox(){
 		myRequestsPage.clickOnShowOnlyFutureVacationsCheckBox();
 	}
+
 }

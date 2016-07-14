@@ -35,7 +35,7 @@ public class EvoPortalTest {
     String textToAssert = "No vacations were found.";
     String text2 = "Holyday";
     String name = "Andrada Maniac";
-    String assertVacation = "\"State\" Vacation Request";
+    String assertVacation = "Vacation Request";
     
     
     @Test
@@ -71,9 +71,7 @@ public class EvoPortalTest {
 //       	myRequestsSteps.clickOnApplyButton();
 //       	myRequestsSteps.clickOnShowOnlyFutureVacationsCheckBox();
 //       	myRequestsSteps.clickOnApplyButton();
-//       	
-       	
-//    	myRequestsSteps.assertVacationRequestText(assertVacation);
+    	myRequestsSteps.assertTextInStateVacationRequest(assertVacation);
     	
     }
 
