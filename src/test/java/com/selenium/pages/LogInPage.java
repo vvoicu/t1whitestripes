@@ -25,5 +25,8 @@ public void enterPassword(String text){
 public void clickOnSingInButton(){
 	singIn.click();
 }
+
+
+
 }
 
