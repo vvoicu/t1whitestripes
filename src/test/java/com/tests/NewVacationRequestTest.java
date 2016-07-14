@@ -15,7 +15,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class EvoPortalTestEma {
+public class NewVacationRequestTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -32,7 +32,7 @@ public class EvoPortalTestEma {
     String userName = "petru.radac";
     String passWord = "test";
     String text = "Filter requests";
-    String requestType = "Funeral";
+   
     
     @Test
     public void evoPortalVacation(){
