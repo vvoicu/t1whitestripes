@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
+import com.selenium.steps.MyRequestsSteps;
 import com.selenium.steps.VacationSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -21,11 +22,14 @@ public class EvoPortalTest {
     @Steps
     public VacationSteps vacationSteps;
     @Steps
+    public MyRequestsSteps myRequestsSteps;
+    @Steps
     public LogInSteps logInSteps;
     String url = "http://172.22.4.88:9090/login";
     String userName = "andrada.maniac";
     String passWord = "test1";
     String text = "Filter requests";
+    
     
     @Test
     public void evoPortalVacation(){
@@ -35,6 +39,17 @@ public class EvoPortalTest {
     	logInSteps.clickOnSingInButton();
     	vacationSteps.clickOnVacationOption();
     	vacationSteps.assertText(text);
+    	myRequestsSteps.clickOnMyRequests();
+    	myRequestsSteps.clickOnHolidayCheckBox();
+    	myRequestsSteps.clickOnOneToFiveCheckBox();
+    	myRequestsSteps.clickOnPendingCheckBox();
+    	myRequestsSteps.clickOnApplyButton();
+    	myRequestsSteps.clickOnHolidayCheckBox();
+    	myRequestsSteps.clickOnOneToFiveCheckBox();
+    	myRequestsSteps.clickOnPendingCheckBox();
+    	myRequestsSteps.clickOnApplyButton();
+    	
+    	
     }
 
 }
