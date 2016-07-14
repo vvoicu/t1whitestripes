@@ -29,6 +29,13 @@ public class EvoPortalTest {
     String userName = "andrada.maniac";
     String passWord = "test1";
     String text = "Filter requests";
+    String filter = "Holiday";
+    String daysNumber = "1 - 5";
+    String vacationStatus = "Pending";
+    String textToAssert = "No vacations were found.";
+    String text2 = "Holyday";
+    String name = "Andrada Maniac";
+    String assertVacation = "\"State\" Vacation Request";
     
     
     @Test
@@ -41,14 +48,32 @@ public class EvoPortalTest {
     	vacationSteps.assertText(text);
     	myRequestsSteps.clickOnMyRequests();
     	myRequestsSteps.clickOnHolidayCheckBox();
-    	myRequestsSteps.clickOnOneToFiveCheckBox();
-    	myRequestsSteps.clickOnPendingCheckBox();
+//    	myRequestsSteps.clickOnOneToFiveCheckBox();
+//    	myRequestsSteps.clickOnPendingCheckBox();
+//    	myRequestsSteps.clickOnApplyButton();
+//    	myRequestsSteps.clickOnHolidayCheckBox();
+//    	myRequestsSteps.clickOnOneToFiveCheckBox();
+//    	myRequestsSteps.clickOnPendingCheckBox();
+//    	myRequestsSteps.clickOnApplyButton();
+//    	myRequestsSteps.clickVacationTypeFilter(filter);
+//    	myRequestsSteps.clickOnVacationDaysNumberFilter(daysNumber);
+//    	myRequestsSteps.clickVacationStatusFilterContainerList(vacationStatus);
+//    	myRequestsSteps.clickOnApplyButton();
+//    	myRequestsSteps.assertText(textToAssert);
+//    	myRequestsSteps.clickOnHolidayCheckBox();
+//    	myRequestsSteps.clickOnOneToFiveCheckBox();
+//    	myRequestsSteps.clickOnPendingCheckBox();
     	myRequestsSteps.clickOnApplyButton();
-    	myRequestsSteps.clickOnHolidayCheckBox();
-    	myRequestsSteps.clickOnOneToFiveCheckBox();
-    	myRequestsSteps.clickOnPendingCheckBox();
-    	myRequestsSteps.clickOnApplyButton();
-    	
+       	myRequestsSteps.assertOnSelectedFilterInTableList(text2);
+       	myRequestsSteps.clickOnNameInTableList(name);
+//       	myRequestsSteps.clickOnMyRequests();
+//       	myRequestsSteps.clickOnShowOnlyFutureVacationsCheckBox();
+//       	myRequestsSteps.clickOnApplyButton();
+//       	myRequestsSteps.clickOnShowOnlyFutureVacationsCheckBox();
+//       	myRequestsSteps.clickOnApplyButton();
+//       	
+       	
+//    	myRequestsSteps.assertVacationRequestText(assertVacation);
     	
     }
 
