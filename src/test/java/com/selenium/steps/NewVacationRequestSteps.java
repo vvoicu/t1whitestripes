@@ -5,6 +5,7 @@ import com.selenium.pages.NewVacationRequestPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
+@SuppressWarnings("serial")
 public class NewVacationRequestSteps extends ScenarioSteps{
 	NewVacationRequestPage newVacationRequestPage;
 	
