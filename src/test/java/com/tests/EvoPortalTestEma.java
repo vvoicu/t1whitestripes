@@ -1,10 +1,10 @@
 package com.tests;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.selenium.steps.InboxSteps;
 import com.selenium.steps.LogInSteps;
 import com.selenium.steps.VacationSteps;
 
@@ -14,7 +14,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class EvoPortalTestMarius {
+public class EvoPortalTestEma {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -24,11 +24,9 @@ public class EvoPortalTestMarius {
     @Steps
     public LogInSteps logInSteps;
     String url = "http://172.22.4.88:9090/login";
-    String userName = "marius.chesovan";
-    String passWord = "010485";
-    
-    @Steps
-    public InboxSteps inboxSteps;
+    String userName = "petru.radac";
+    String passWord = "test";
+    String text = "Filter requests";
     
     @Test
     public void evoPortalVacation(){
@@ -36,21 +34,8 @@ public class EvoPortalTestMarius {
     	logInSteps.enterUserName(userName);
     	logInSteps.enterPassword(passWord);
     	logInSteps.clickOnSingInButton();
-    	inboxSteps.clickOnVacation();
-    	inboxSteps.clickOnInbox();
-    	inboxSteps.clickOnCheckBox();
-    	inboxSteps.clickOnCheckBox();
-    	inboxSteps.clickOnCheckBox();
-    	inboxSteps.clickOnApproveButton();
-    	inboxSteps.clickOnCheckBox();
-    	inboxSteps.clickOnRejectButton();
-    	inboxSteps.clickOnCheckBoxMultiple();
-    	inboxSteps.clickOnCheckBoxMultiple();
-    	inboxSteps.clickOnLineRequest();
-    	inboxSteps.clickOnRejectButtonInsideRequest();
-    	inboxSteps.clickOnLineRequest();
-    	inboxSteps.clickOnApproveButtonInsideRequest();
-    	inboxSteps.clickOnLineRequest();
+    	vacationSteps.clickOnVacationOption();
+    	vacationSteps.assertText(text);
     }
 
 }

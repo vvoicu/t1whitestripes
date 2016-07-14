@@ -7,9 +7,10 @@ import net.serenitybdd.core.pages.WebElementFacade;
 public class LogInPage extends PageObject {
 
 @FindBy(css="input[id*='login']")
-private WebElementFacade userName;
-@FindBy (css="input[id*='password']")
 
+private WebElementFacade userName;
+
+@FindBy (css="input[id*='password']")
 WebElementFacade password;
 @FindBy (css=".aui-button-input.aui-button-input-submit")
 WebElementFacade singIn;
@@ -24,5 +25,8 @@ public void enterPassword(String text){
 public void clickOnSingInButton(){
 	singIn.click();
 }
+
+
+
 }
 
