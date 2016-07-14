@@ -12,6 +12,7 @@ private WebElementFacade userName;
 
 @FindBy (css="input[id*='password']")
 WebElementFacade password;
+
 @FindBy (css=".aui-button-input.aui-button-input-submit")
 WebElementFacade singIn;
 
