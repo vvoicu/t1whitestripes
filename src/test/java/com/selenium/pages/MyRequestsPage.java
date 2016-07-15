@@ -68,7 +68,7 @@ public class MyRequestsPage extends PageObject {
 
 	}
 
-	public void clickVacationTypeFilter(String filter) {
+	public void clickVacationTypeFilterList(String filter) {
 		boolean filterFound = false;
 		for (WebElement filterElement1 : vacationTypeFilterContainerList) {
 
@@ -83,7 +83,7 @@ public class MyRequestsPage extends PageObject {
 		Assert.assertTrue("The filter was not found", filterFound);
 	}
 
-	public void clickOnVacationDaysNumberFilter(String filter) {
+	public void clickOnVacationDaysNumberFilterList(String filter) {
 		boolean filterFound = false;
 		System.out.println("Size:" + vacationDaysNumberContainerList.size());
 		for (WebElement filterElement2 : vacationDaysNumberContainerList) {
@@ -148,11 +148,15 @@ public class MyRequestsPage extends PageObject {
 	}
 	public void assertTextInStateVacationRequest(String assertText){
 		WebElement element = getDriver().findElement(By.cssSelector("div.view-vacation > div.content-title"));
-		System.out.println("1 : "+element.getText());
 		Assert.assertTrue(element.getText().contains(assertText));
 	}
 	public void clickOnShowOnlyFutureVacationsCheckBox(){
 		WebElement showOnlyFutureVacationsCheckBox = getDriver().findElement(By.cssSelector("input[id$='futureVacationsCheckbox']"));
 		showOnlyFutureVacationsCheckBox.click();
+	}
+	public void assertDate(String text){
+		WebElement dateElement = getDriver().findElement(By.cssSelector("td.align-left.col-1 a"));
+		Assert.assertTrue(dateElement.getText().contains(text));
+		
 	}
 }
