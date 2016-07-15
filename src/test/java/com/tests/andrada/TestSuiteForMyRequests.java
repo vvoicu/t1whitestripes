@@ -1,13 +1,16 @@
 package com.tests.andrada;
 
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import com.tests.LogInTest;
 
-@RunWith(SerenityRunner.class)
+
+
+@RunWith(Suite.class)
 @SuiteClasses({
-	
+		LogInTest.class,
 		FilterAndTableTest.class,
 		FilterCheckboxesTest.class,
 		FilterListTest.class,

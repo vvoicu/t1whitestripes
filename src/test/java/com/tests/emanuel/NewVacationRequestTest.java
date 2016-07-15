@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.VacationSteps;
+import com.selenium.steps.andrada.VacationSteps;
 import com.selenium.steps.emanuel.NewVacationRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;

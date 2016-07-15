@@ -1,6 +1,6 @@
-package com.selenium.steps;
+package com.selenium.steps.andrada;
 
-import com.selenium.pages.MyRequestsPage;
+import com.selenium.pages.andrada.MyRequestsPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;

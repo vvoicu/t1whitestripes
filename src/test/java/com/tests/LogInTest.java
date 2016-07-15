@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.VacationSteps;
+import com.selenium.steps.andrada.VacationSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -26,7 +26,7 @@ public class LogInTest {
 	String text = "Filter requests";
 
 	@Test
-	public void evoPortalVacation() {
+	public void logInTest() {
 		logInSteps.openEvoPortalPage(url);
 		logInSteps.enterUserName(userName);
 		logInSteps.enterPassword(passWord);
