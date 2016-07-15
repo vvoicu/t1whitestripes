@@ -15,8 +15,6 @@ import com.tests.LogInTest;
 		FilterCheckboxesTest.class,
 		FilterListTest.class,
 		FutureVacationsCheckboxTest.class,
-		
-		
 })
 public class TestSuiteForMyRequests {
 }
