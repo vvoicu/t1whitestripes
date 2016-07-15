@@ -1,6 +1,6 @@
-package com.selenium.steps;
+package com.selenium.steps.marius;
 
-import com.selenium.pages.DayPickerPage;
+import com.selenium.pages.marius.DayPickerPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;

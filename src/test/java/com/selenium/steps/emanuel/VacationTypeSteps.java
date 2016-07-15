@@ -16,6 +16,4 @@ public class VacationTypeSteps extends ScenarioSteps {
 		vacationTypePage.clickVacationType(filter,fil);
 	}
 	
-
-
 }

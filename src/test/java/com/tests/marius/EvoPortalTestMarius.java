@@ -1,13 +1,12 @@
-package com.tests;
+package com.tests.marius;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.selenium.steps.DayPickerSteps;
-import com.selenium.steps.InboxSteps;
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.andrada.VacationSteps;
+import com.selenium.steps.marius.DayPickerSteps;
+import com.selenium.steps.marius.InboxSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -20,8 +19,6 @@ public class EvoPortalTestMarius {
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @Steps
-    public VacationSteps vacationSteps;
     @Steps
     public LogInSteps logInSteps;
     String url = "http://172.22.4.88:9090/login";
@@ -77,7 +74,9 @@ public class EvoPortalTestMarius {
     	logInSteps.enterUserName(userName2);
     	logInSteps.enterPassword(passWord2);   	
     	logInSteps.clickOnSingInButton();
-    	inboxSteps.clickOnVacation();    	
+    	
+    	inboxSteps.clickOnVacation();    
+    	
     	dayPickerSteps.clickOnNewVacationRequest();
     	dayPickerSteps.clickOnStartDayButton();
     	dayPickerSteps.clickOnMonthYearOption();
@@ -149,7 +148,8 @@ public class EvoPortalTestMarius {
     	dayPickerSteps.selectDay(endDay4);
     	dayPickerSteps.saveVacationRequest();
     	
-//		dayPickerSteps.hoverUserAvatar(); todo(nu merge)
+		dayPickerSteps.hoverUserAvatar(); 
+//		todo(nu merge)
 		
     	dayPickerSteps.logoutDirect();
 		
@@ -173,7 +173,10 @@ public class EvoPortalTestMarius {
     	inboxSteps.clickOnRejectButtonInsideRequest();
     	inboxSteps.clickOnLineRequest();
     	inboxSteps.clickOnApproveButtonInsideRequest();
-    	inboxSteps.clickOnLineRequest();
+//    	inboxSteps.clickOnLineRequest();
+    	
+    	inboxSteps.clickOnCheckBox();
+    	inboxSteps.clickOnRejectButton();
     }
 
 }

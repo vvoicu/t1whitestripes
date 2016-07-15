@@ -6,51 +6,43 @@ import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
 import com.selenium.steps.andrada.VacationSteps;
-import com.selenium.steps.emanuel.NewVacationRequestSteps;
-import com.selenium.steps.emanuel.VacationTypeSteps;
+import com.selenium.steps.emanuel.MyFreeDaysSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class VacationTypeTest {
+public class MyFreeDaysTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
+
 	@Steps
 	public LogInSteps logInSteps;
 
 	@Steps
 	public VacationSteps vacationSteps;
-	@Steps
-	public NewVacationRequestSteps newVacationRequestSteps;
 
 	@Steps
-	public VacationTypeSteps vacationTypeSteps;
+	public MyFreeDaysSteps myFreeDaysSteps;
 
 	String url = "http://172.22.4.88:9090/login";
 	String userName = "petru.radac";
 	String passWord = "test";
-	String requestType = "Special vacation";
-	String requestTypeName = "Funeral";
 	String text = "Filter requests";
+@Test
+	public void myFreeDays() {
 
-
-	@Test
-	public void vacationTest() {
 		logInSteps.openEvoPortalPage(url);
 		logInSteps.enterUserName(userName);
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.assertText(text);
-
-		newVacationRequestSteps.clickOnNewVacationRequestPage();
-		vacationTypeSteps.clickVacationType(requestType,requestTypeName);
 		
-		newVacationRequestSteps.selectSave();
-	
+		myFreeDaysSteps.clickOnMyFreeDays();
+
 	}
 
 }
