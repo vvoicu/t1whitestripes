@@ -11,7 +11,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class FutureVacationsCheckboxText {
+public class FutureVacationsCheckboxTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
