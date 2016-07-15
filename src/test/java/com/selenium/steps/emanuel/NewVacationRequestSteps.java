@@ -36,6 +36,17 @@ public class NewVacationRequestSteps extends ScenarioSteps{
 	}
 	
 	@Step
+	public void clickCommentArea(){
+		newVacationRequestPage.clickCommentArea();
+	}
+	
+	@Step
+	public void addComment(String comment){
+		newVacationRequestPage.addComment(comment);
+	}
+	
+	
+	@Step
 	public void selectSave(){
 		newVacationRequestPage.selectSave();
 	}

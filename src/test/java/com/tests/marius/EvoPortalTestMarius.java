@@ -5,7 +5,6 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.VacationSteps;
 import com.selenium.steps.marius.DayPickerSteps;
 import com.selenium.steps.marius.InboxSteps;
 
@@ -20,8 +19,6 @@ public class EvoPortalTestMarius {
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @Steps
-    public VacationSteps vacationSteps;
     @Steps
     public LogInSteps logInSteps;
     String url = "http://172.22.4.88:9090/login";
