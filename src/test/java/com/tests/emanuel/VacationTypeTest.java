@@ -36,6 +36,7 @@ public class VacationTypeTest {
 	String requestTypeName = "Funeral";
 	String text = "Filter requests";
 
+
 	@Test
 	public void vacationTest() {
 		logInSteps.openEvoPortalPage(url);

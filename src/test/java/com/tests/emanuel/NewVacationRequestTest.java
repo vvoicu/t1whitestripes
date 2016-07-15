@@ -32,6 +32,7 @@ public class NewVacationRequestTest {
     String userName = "petru.radac";
     String passWord = "test";
     String text = "Filter requests";
+    String comment = "This is a comment";
    
    
     
@@ -51,7 +52,11 @@ public class NewVacationRequestTest {
     	newVacationRequestSteps.selectDate();
     	newVacationRequestSteps.clickEndDate();
     	newVacationRequestSteps.selectEndDate();
-   
+    	
+    	
+    	newVacationRequestSteps.clickCommentArea();
+    	newVacationRequestSteps.addComment(comment);
+    	
     	newVacationRequestSteps.selectSave();
     	
     }
