@@ -1,6 +1,6 @@
-package com.selenium.steps;
+package com.selenium.steps.marius;
 
-import com.selenium.pages.InboxPage;
+import com.selenium.pages.marius.InboxPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
