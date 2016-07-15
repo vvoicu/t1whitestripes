@@ -38,13 +38,12 @@ public class EvoPortalTest {
     
     @Test
     public void evoPortalVacation(){
-    	
-    	
     	myRequestsSteps.clickOnMyRequests();
     	myRequestsSteps.clickOnHolidayCheckBox();
     	myRequestsSteps.clickOnOneToFiveCheckBox();
     	myRequestsSteps.clickOnPendingCheckBox();
     	myRequestsSteps.clickOnApplyButton();
+    	myRequestsSteps.assertText(textToAssert);
     	myRequestsSteps.clickOnHolidayCheckBox();
     	myRequestsSteps.clickOnOneToFiveCheckBox();
     	myRequestsSteps.clickOnPendingCheckBox();
