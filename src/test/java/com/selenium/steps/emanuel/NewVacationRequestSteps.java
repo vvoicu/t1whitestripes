@@ -1,6 +1,6 @@
-package com.selenium.steps;
+package com.selenium.steps.emanuel;
 
-import com.selenium.pages.NewVacationRequestPage;
+import com.selenium.pages.emanuel.NewVacationRequestPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;

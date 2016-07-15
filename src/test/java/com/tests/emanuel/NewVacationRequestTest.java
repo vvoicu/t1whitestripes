@@ -1,4 +1,4 @@
-package com.tests;
+package com.tests.emanuel;
 
 
 import org.junit.Test;
@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.NewVacationRequestSteps;
 import com.selenium.steps.VacationSteps;
+import com.selenium.steps.emanuel.NewVacationRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -33,6 +33,7 @@ public class NewVacationRequestTest {
     String passWord = "test";
     String text = "Filter requests";
    
+   
     
     @Test
     public void evoPortalVacation(){
@@ -43,16 +44,14 @@ public class NewVacationRequestTest {
     	vacationSteps.clickOnVacationOption();
     	vacationSteps.assertText(text);
     	
+    	
+    	
     	newVacationRequestSteps.clickOnNewVacationRequestPage();
     	newVacationRequestSteps.clickStartDate();
     	newVacationRequestSteps.selectDate();
     	newVacationRequestSteps.clickEndDate();
     	newVacationRequestSteps.selectEndDate();
-    	/*
-    	newVacationRequestSteps.clickSpecialVacation();
-    	newVacationRequestSteps.selectVacationType(requestType);
-    	*/
-    	
+   
     	newVacationRequestSteps.selectSave();
     	
     }
