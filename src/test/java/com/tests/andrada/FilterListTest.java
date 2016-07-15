@@ -12,9 +12,10 @@ import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
+import utils.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value = "src/test/resources/csv/FilterListTest.csv",separator=',')
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "FilterListTest.csv",separator = Constants.CSV_SEPARATOR)
 public class FilterListTest {
 
 	@Managed(uniqueSession = true)
