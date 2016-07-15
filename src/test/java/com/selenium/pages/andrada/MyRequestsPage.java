@@ -87,7 +87,6 @@ public class MyRequestsPage extends PageObject {
 		boolean filterFound = false;
 		System.out.println("Size:" + vacationDaysNumberContainerList.size());
 		for (WebElement filterElement2 : vacationDaysNumberContainerList) {
-
 			WebElement filterName = filterElement2.findElement(By.cssSelector(daysNumberFilterNameCssSelector));
 			if (filterName.getText().contentEquals(filter)) {
 				filterFound = true;
@@ -104,8 +103,6 @@ public class MyRequestsPage extends PageObject {
 		boolean filterFound = false;
 		for (WebElement filterElement3 : vacationStatusFilterContainerList) {
 			WebElement filterName = filterElement3.findElement(By.cssSelector(vacationStautsNameCssSelector));
-			System.out.println("Filter name:" + filterName.getText());
-			System.out.println("Expected filter: " + filter);
 			if (filterName.getText().contentEquals(filter)) {
 				filterFound = true;
 				WebElement checkbox = filterElement3.findElement(By.cssSelector(vacationStatusCheckBoxCssSelector));

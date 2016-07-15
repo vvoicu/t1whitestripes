@@ -14,4 +14,20 @@ public class MyFreeDaysSteps extends ScenarioSteps{
 	public void clickOnMyFreeDays(){
 		myFreeDays.clickMyFreeDays();
 	}
+	
+	@Step
+	public void clickOnYear1(){
+		myFreeDays.clickOnYear1();
+	}
+	
+	@Step
+	public void clickOnYear2(){
+		myFreeDays.clicOnYear2();
+	}
+	
+	@Step
+	public void backButton(){
+		myFreeDays.backButton();
+	}
+	
 }

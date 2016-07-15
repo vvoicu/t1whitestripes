@@ -8,11 +8,14 @@ import com.selenium.steps.LogInSteps;
 import com.selenium.steps.andrada.MyRequestsSteps;
 import com.selenium.steps.andrada.VacationSteps;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import utils.Constants;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "FilterListTest.csv",separator = Constants.CSV_SEPARATOR)
 public class FilterListTest {
 
 	@Managed(uniqueSession = true)
@@ -28,11 +31,8 @@ public class FilterListTest {
 	String userName = "andrada.maniac";
 	String passWord = "test1";
 	String text = "Filter requests";
-	String typeFilter = "Holiday";
-	String daysNumberFilter = "1 - 5";
-	String vacationStatusFilter = "Pending";
 	String textToAssert = "No vacations were found.";
-
+	private String typeFilter,daysNumberFilter,vacationStatusFilter;
 	@Test
 	public void myRequestFilterList() {
 		logInSteps.openEvoPortalPage(url);

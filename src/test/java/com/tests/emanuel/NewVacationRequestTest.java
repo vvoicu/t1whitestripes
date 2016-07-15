@@ -9,12 +9,15 @@ import com.selenium.steps.LogInSteps;
 import com.selenium.steps.andrada.VacationSteps;
 import com.selenium.steps.emanuel.NewVacationRequestSteps;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value="src/test/resources/csv/newVacationRequest.csv")
 public class NewVacationRequestTest {
 
     @Managed(uniqueSession = true)
@@ -24,26 +27,21 @@ public class NewVacationRequestTest {
     public VacationSteps vacationSteps;
     @Steps
     public LogInSteps logInSteps;
+    private String username,password,comment,url,filter;
     
-    @Steps
+     @Steps
     public NewVacationRequestSteps newVacationRequestSteps;
+   
     
-    String url = "http://172.22.4.88:9090/login";
-    String userName = "petru.radac";
-    String passWord = "test";
-    String text = "Filter requests";
-    String comment = "This is a comment";
-   
-   
     
     @Test
     public void evoPortalVacation(){
     	logInSteps.openEvoPortalPage(url);
-    	logInSteps.enterUserName(userName);
-    	logInSteps.enterPassword(passWord);
+    	logInSteps.enterUserName(username);
+    	logInSteps.enterPassword(password);
     	logInSteps.clickOnSingInButton();
     	vacationSteps.clickOnVacationOption();
-    	vacationSteps.assertText(text);
+    	vacationSteps.assertText(filter);
     	
     	
     	

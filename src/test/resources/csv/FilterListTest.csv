@@ -1,0 +1,6 @@
+typeFilter,daysNumberFilter,vacationStatusFilter
+Holiday,1 - 5,Pending
+Vacation Without Payment,6 - 10,Approved
+Special Vacation,11 - 20,Rejected
+Sick Leave,21 - 50,Withdrawn
+Maternity Leave,51 +,Cancelled
