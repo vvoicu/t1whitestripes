@@ -1,4 +1,4 @@
-package com.tests;
+package com.tests.andrada;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

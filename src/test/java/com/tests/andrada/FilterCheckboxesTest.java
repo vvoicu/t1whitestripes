@@ -1,35 +1,39 @@
-package com.tests;
+package com.tests.andrada;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.MyRequestsSteps;
+import com.selenium.steps.VacationSteps;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class FilterListTest {
+public class FilterCheckboxesTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
 	@Steps
+	public VacationSteps vacationSteps;
+	@Steps
 	public MyRequestsSteps myRequestsSteps;
-	String typeFilter = "Holiday";
-	String daysNumberFilter = "1 - 5";
-	String vacationStatusFilter = "Pending";
 	String textToAssert = "No vacations were found.";
 
 	@Test
-	public void myRequestFilterList() {
+	public void myRequestsCheckBoxes() {
 		myRequestsSteps.clickOnMyRequests();
-		myRequestsSteps.clickVacationTypeFilterList(typeFilter);
-		myRequestsSteps.clickOnVacationDaysNumberFilterList(daysNumberFilter);
-		myRequestsSteps.clickVacationStatusFilterContainerList(vacationStatusFilter);
+		myRequestsSteps.clickOnHolidayCheckBox();
+		myRequestsSteps.clickOnOneToFiveCheckBox();
+		myRequestsSteps.clickOnPendingCheckBox();
 		myRequestsSteps.clickOnApplyButton();
 		myRequestsSteps.assertText(textToAssert);
+		myRequestsSteps.clickOnHolidayCheckBox();
+		myRequestsSteps.clickOnOneToFiveCheckBox();
+		myRequestsSteps.clickOnPendingCheckBox();
+		myRequestsSteps.clickOnApplyButton();
 	}
-
 }
