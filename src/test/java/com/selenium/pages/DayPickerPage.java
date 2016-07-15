@@ -4,12 +4,24 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class DayPickerPage extends PageObject {
+	
+	
+	@FindBy(css = "img[alt='EvoPortal']")
+	private WebElementFacade userAvatar;
+
+	
+	@FindBy(css = "div[id=dockbar] ul li.user-avatar")
+	private WebElementFacade signOut;
+	
+	@FindBy(css = ".aui-column-content .carousel-slider:nth-child(1) ul li:nth-child(2) a")
+	private WebElementFacade newVacationRequestAccess;
 	
 	@FindBy(css = "form > span:first-of-type  button")
 	private WebElementFacade startDateButon;
@@ -29,7 +41,29 @@ public class DayPickerPage extends PageObject {
 	@FindBy(css=".Zebra_DatePicker[style*='display: block'] .dp_yearpicker tbody")
 	public WebElement yearPickerContainer;
 	
-
+	@FindBy(css=".aui-button-holder span:first-child span input")
+	public WebElement saveButton;
+	
+	public void clickOnNewVacationRequest(){
+		newVacationRequestAccess.click();
+	}
+	
+	public void hoverUserAvatar(){
+		waitABit(3000);
+		Actions actions = new Actions(getDriver());
+		WebElement hoverElement = getDriver().findElement(By.cssSelector("div[id=dockbar] ul li.user-avatar"));
+		actions.moveToElement(hoverElement).build().perform();
+		waitABit(3000);
+	}
+	
+	public void logoutDirect(){
+		getDriver().get("/c/portal/logout");
+	}
+	
+	public void saveVacationRequest(){
+		saveButton.click();
+	}
+	
 	public void clickOnStartDayButton(){
 		startDateButon.click();
 	}

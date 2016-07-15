@@ -8,6 +8,12 @@ import net.thucydides.core.steps.ScenarioSteps;
 public class DayPickerSteps extends ScenarioSteps{
 	DayPickerPage dayPickerPage;
 	
+	
+	@Step
+	public void clickOnNewVacationRequest(){
+		dayPickerPage.clickOnNewVacationRequest();
+	}
+	
 	@Step
 	public void clickOnStartDayButton(){
 		dayPickerPage.clickOnStartDayButton();
@@ -39,6 +45,20 @@ public class DayPickerSteps extends ScenarioSteps{
 		dayPickerPage.selectYear(text);
 	}
 	
+	@Step
+	public void saveVacationRequest(){
+		dayPickerPage.saveVacationRequest();
+	}
+	
+	@Step
+	public void hoverUserAvatar(){
+		dayPickerPage.hoverUserAvatar();
+	}
+	
+	@Step
+	public void logoutDirect(){
+		dayPickerPage.logoutDirect();
+	}
 	
 	
 }
