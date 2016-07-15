@@ -1,4 +1,4 @@
-package com.selenium.pages;
+package com.selenium.pages.emanuel;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -20,7 +20,7 @@ public class NewVacationRequestPage extends PageObject{
 	@FindBy(css="div:nth-child(12) > table.dp_daypicker > tbody > tr:nth-child(4) > td:nth-child(6)")
 	private WebElementFacade selectEndDate;
 	
-	@FindBy(css="input[class='aui-button-input aui-button-input-submit']")
+	@FindBy(css="span.aui-button-content input[class='aui-button-input aui-button-input-submit']")
 	private WebElementFacade clickSave;
 	
 	
@@ -51,7 +51,11 @@ public class NewVacationRequestPage extends PageObject{
 	}
 	
 	public void selectSave(){
+		element(clickSave).waitUntilVisible();
+		clickSave.sendKeys("");
 		clickSave.click();
+		
+		waitABit(2000);
 	}
 
 	

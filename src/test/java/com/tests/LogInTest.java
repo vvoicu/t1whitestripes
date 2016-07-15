@@ -19,6 +19,7 @@ public class LogInTest {
 	public LogInSteps logInSteps;
 	@Steps
 	public VacationSteps vacationSteps;
+	
 	String url = "http://172.22.4.88:9090/login";
 	String userName = "andrada.maniac";
 	String passWord = "test1";

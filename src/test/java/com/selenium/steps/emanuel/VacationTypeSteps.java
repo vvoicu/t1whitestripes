@@ -1,6 +1,7 @@
-package com.selenium.steps;
+package com.selenium.steps.emanuel;
 
-import com.selenium.pages.VacationTypePage;
+import com.selenium.pages.emanuel.NewVacationRequestPage;
+import com.selenium.pages.emanuel.VacationTypePage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -14,5 +15,7 @@ public class VacationTypeSteps extends ScenarioSteps {
 	public void clickVacationType(String filter, String fil) {
 		vacationTypePage.clickVacationType(filter,fil);
 	}
+	
+
 
 }

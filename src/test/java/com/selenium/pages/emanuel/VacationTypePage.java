@@ -1,4 +1,4 @@
-package com.selenium.pages;
+package com.selenium.pages.emanuel;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class VacationTypePage extends PageObject {
 		 clickMaternityLeave(additionalOption);
 		 }
 	}
-
+ 
 	public void clickSpecialVacation(String specialVacationName){
 		List<WebElement> vacationList=specialVacationList.findElements(By.tagName("option"));
 	

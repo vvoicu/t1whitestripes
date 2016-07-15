@@ -1,13 +1,13 @@
-package com.tests;
+package com.tests.emanuel;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.NewVacationRequestSteps;
 import com.selenium.steps.VacationSteps;
-import com.selenium.steps.VacationTypeSteps;
+import com.selenium.steps.emanuel.NewVacationRequestSteps;
+import com.selenium.steps.emanuel.VacationTypeSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -47,7 +47,9 @@ public class VacationTypeTest {
 
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
 		vacationTypeSteps.clickVacationType(requestType,requestTypeName);
-
+		
+		newVacationRequestSteps.selectSave();
+	
 	}
 
 }
