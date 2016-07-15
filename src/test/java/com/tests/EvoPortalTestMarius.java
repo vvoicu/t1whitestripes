@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import com.selenium.steps.DayPickerSteps;
 import com.selenium.steps.InboxSteps;
 import com.selenium.steps.LogInSteps;
-import com.selenium.steps.VacationSteps;
+import com.selenium.steps.andrada.VacationSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;

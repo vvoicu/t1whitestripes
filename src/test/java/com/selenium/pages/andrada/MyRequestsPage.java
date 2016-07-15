@@ -1,4 +1,4 @@
-package com.selenium.pages;
+package com.selenium.pages.andrada;
 
 import java.util.List;
 
