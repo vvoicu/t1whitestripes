@@ -1,10 +1,13 @@
 package com.tests.andrada;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
@@ -33,7 +36,7 @@ public class BaseTest {
 			// load a properties file
 			prop.load(input);
 			
-			url = prop.getProperty(" url");
+			url = prop.getProperty("url");
 			userName = prop.getProperty("userName");
 			passWord = prop.getProperty("password");
 //			// get the property value and print it out
@@ -52,6 +55,17 @@ public class BaseTest {
 				}
 			}
 		}
+	}
+	@After
+	public void dataWrite() throws IOException {
+
+		Properties prop = new Properties();
+		OutputStream output = null;
+		output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+		prop.setProperty("lalala", "nonoo");
+		prop.setProperty("user", "andrada");
+		prop.store(output, "Write something");
 
 	}
 }
+
