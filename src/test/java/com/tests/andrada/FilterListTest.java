@@ -40,7 +40,7 @@ public class FilterListTest {
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(text);
 		myRequestsSteps.clickOnMyRequests();
 		myRequestsSteps.clickVacationTypeFilterList(typeFilter);
 		myRequestsSteps.clickOnVacationDaysNumberFilterList(daysNumberFilter);

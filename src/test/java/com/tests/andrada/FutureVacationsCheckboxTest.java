@@ -14,7 +14,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class FutureVacationsCheckboxTest {
+public class FutureVacationsCheckboxTest extends BaseTest{
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -26,10 +26,10 @@ public class FutureVacationsCheckboxTest {
     @Steps
     public MyRequestsSteps myRequestsSteps;
   
-    String url = "http://172.22.4.88:9090/login";
-	String userName = "andrada.maniac";
-	String passWord = "test1";
-	String text = "Filter requests";
+//    String url = "http://172.22.4.88:9090/login";
+//	String userName = "andrada.maniac";
+//	String passWord = "test1";
+	String topPageText = "Filter requests";
     String text3 = "2016";
     
     @Test
@@ -39,7 +39,7 @@ public class FutureVacationsCheckboxTest {
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(topPageText);
        	myRequestsSteps.clickOnMyRequests();
        	myRequestsSteps.clickOnShowOnlyFutureVacationsCheckBox();
        	myRequestsSteps.clickOnApplyButton();

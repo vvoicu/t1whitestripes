@@ -41,7 +41,7 @@ public class MyFreeDaysTest {
 		logInSteps.enterPassword(password);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(filter);
+		vacationSteps.vacationPageTopText(filter);
 		
 		myFreeDaysSteps.clickOnMyFreeDays();
 		myFreeDaysSteps.clickOnYear1();

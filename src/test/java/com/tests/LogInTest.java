@@ -32,7 +32,7 @@ public class LogInTest {
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(text);
 
 	}
 }

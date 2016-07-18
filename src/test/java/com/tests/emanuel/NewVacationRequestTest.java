@@ -43,7 +43,7 @@ public class NewVacationRequestTest {
     	logInSteps.enterPassword(password);
     	logInSteps.clickOnSingInButton();
     	vacationSteps.clickOnVacationOption();
-    	vacationSteps.assertText(filter);
+    	vacationSteps.vacationPageTopText(filter);
     	
     	
     	

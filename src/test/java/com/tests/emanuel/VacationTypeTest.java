@@ -42,7 +42,7 @@ public class VacationTypeTest {
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(text);
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
 		vacationTypeSteps.clickVacationType(requestType, requestTypeName);
 		newVacationRequestSteps.selectSave();

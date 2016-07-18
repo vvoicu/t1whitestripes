@@ -1,4 +1,5 @@
-package com.tests.andrada;
+
+	package com.tests.andrada;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import net.thucydides.core.annotations.Managed;
 import utils.Constants;
 
-public class BaseTest {
+public class PropertyWriteTest {
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -24,14 +25,14 @@ public class BaseTest {
 	public void dataSetup() {
 
 		Properties prop = new Properties();
-		InputStream input = null;
+		InputStream output = null;
 
 		try {
 
-			input = new FileInputStream(Constants.CONFIG_FILE_PATH);
+			output = new FileInputStream(Constants.CONFIG_FILE_PATH);
 
 			// load a properties file
-			prop.load(input);
+			prop.load(output);
 			
 			url = prop.getProperty(" url");
 			userName = prop.getProperty("userName");
@@ -44,9 +45,9 @@ public class BaseTest {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
-			if (input != null) {
+			if (output != null) {
 				try {
-					input.close();
+					output.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
