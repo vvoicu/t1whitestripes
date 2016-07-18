@@ -1,10 +1,13 @@
 package com.tests.emanuel;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
@@ -49,4 +52,25 @@ public class BaseTestEmanuel {
 		logInSteps.clickOnSingInButton();
 
 	}
+	
+	@After
+	public void dataPersistance() throws IOException{
+		
+		Properties prop = new Properties();
+		OutputStream output = null;
+
+		
+
+			output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+
+			// set the properties value
+			prop.setProperty("database", "localhost");
+			prop.setProperty("dbuser", "mkyong");
+			prop.setProperty("dbpassword", "password");
+
+			// save properties to project root folder
+			prop.store(output, "Properties file");
+
+	  }
 }
+
