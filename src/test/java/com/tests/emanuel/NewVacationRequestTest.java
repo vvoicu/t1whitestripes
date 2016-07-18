@@ -14,10 +14,11 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
+import utils.Constants;
 
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value="src/test/resources/csv/newVacationRequest.csv")
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "newVacationRequest.csv")
 public class NewVacationRequestTest {
 
     @Managed(uniqueSession = true)
@@ -27,7 +28,8 @@ public class NewVacationRequestTest {
     public VacationSteps vacationSteps;
     @Steps
     public LogInSteps logInSteps;
-    private String username,password,comment,url,filter;
+    private String username,password,comment,filter;
+   
     
      @Steps
     public NewVacationRequestSteps newVacationRequestSteps;
@@ -36,7 +38,7 @@ public class NewVacationRequestTest {
     
     @Test
     public void evoPortalVacation(){
-    	logInSteps.openEvoPortalPage(url);
+    	logInSteps.openEvoPortalPage(Constants.URL);
     	logInSteps.enterUserName(username);
     	logInSteps.enterPassword(password);
     	logInSteps.clickOnSingInButton();

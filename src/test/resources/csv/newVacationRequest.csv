@@ -1,4 +1,2 @@
-username,password,comment,url,filter
-petru.radac,test,This is a comment,http://172.22.4.88:9090/login,Filter requests
-petru.radac,test2,,http://172.22.4.88:9090/login,
-petru,test1,,http://172.22.4.88:9090/login,
+username,password,comment,filter
+petru.radac,test,This is a comment,Filter requests

@@ -7,7 +7,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 public class LogInPage extends PageObject {
 
 @FindBy(css="input[id*='login']")
-
 private WebElementFacade userName;
 
 @FindBy (css="input[id*='password']")
