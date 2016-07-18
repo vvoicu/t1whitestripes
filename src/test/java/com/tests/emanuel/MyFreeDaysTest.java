@@ -13,9 +13,10 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
+import utils.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value="src/test/resources/csv/myFreeDays.csv")
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "myFreeDays.csv")
 
 public class MyFreeDaysTest {
 

@@ -18,14 +18,13 @@ public class VacationTypeTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
+	
 	@Steps
 	public LogInSteps logInSteps;
-
 	@Steps
 	public VacationSteps vacationSteps;
 	@Steps
 	public NewVacationRequestSteps newVacationRequestSteps;
-
 	@Steps
 	public VacationTypeSteps vacationTypeSteps;
 
@@ -36,7 +35,6 @@ public class VacationTypeTest {
 	String requestTypeName = "Funeral";
 	String text = "Filter requests";
 
-
 	@Test
 	public void vacationTest() {
 		logInSteps.openEvoPortalPage(url);
@@ -45,12 +43,10 @@ public class VacationTypeTest {
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.assertText(text);
-
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
-		vacationTypeSteps.clickVacationType(requestType,requestTypeName);
-		
+		vacationTypeSteps.clickVacationType(requestType, requestTypeName);
 		newVacationRequestSteps.selectSave();
-	
+
 	}
 
 }
