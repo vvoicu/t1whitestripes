@@ -18,10 +18,7 @@ import utils.Constants;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value=Constants.CSV_FILES_PATH + "vacationType.csv")
 
-public class VacationTypeTest extends BaseTest {
-
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
+public class VacationTypeTest extends BaseTestEmanuel {
 
 	@Steps
 	public LogInSteps logInSteps;
@@ -32,14 +29,11 @@ public class VacationTypeTest extends BaseTest {
 	@Steps
 	public VacationTypeSteps vacationTypeSteps;
 
-	private String username, password, filter, requestType, requestTypeName;
+	private String filter, requestType, requestTypeName;
 
 	@Test
 	public void vacationTest() {
-		logInSteps.openEvoPortalPage(Constants.URL);
-		logInSteps.enterUserName(username);
-		logInSteps.enterPassword(password);
-		logInSteps.clickOnSingInButton();
+		
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.vacationPageTopText(filter);
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
