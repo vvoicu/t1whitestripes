@@ -14,7 +14,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import utils.Constants;
 
-public class BaseTest {
+public class BaseTestEmanuel {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
