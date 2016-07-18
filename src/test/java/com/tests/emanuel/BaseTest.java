@@ -21,7 +21,7 @@ public class BaseTest {
 
 	public String url;
 	public String userName;
-	public String password;
+	public String passWord;
 
 	Properties prop = new Properties();
 	InputStream input = null;
@@ -37,13 +37,15 @@ public class BaseTest {
 
 		url = prop.getProperty("url");
 		userName = prop.getProperty("userName");
-		password = prop.getProperty("password");
+		passWord = prop.getProperty("password");
 		
 		System.out.println(url);
+		System.out.println(userName);
+		System.out.println(passWord);
 		
 		logInSteps.openEvoPortalPage(url);
 		logInSteps.enterUserName(userName);
-		logInSteps.enterPassword(password);
+		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 
 	}

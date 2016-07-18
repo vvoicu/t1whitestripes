@@ -21,9 +21,6 @@ import utils.Constants;
 
 public class VacationTypeTest extends BaseTest {
 
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
-
 	@Steps
 	public LogInSteps logInSteps;
 	@Steps
@@ -33,14 +30,11 @@ public class VacationTypeTest extends BaseTest {
 	@Steps
 	public VacationTypeSteps vacationTypeSteps;
 
-	private String username, password, filter, requestType, requestTypeName;
+	private String filter, requestType, requestTypeName;
 
 	@Test
 	public void vacationTest() {
-		logInSteps.openEvoPortalPage(Constants.URL);
-		logInSteps.enterUserName(username);
-		logInSteps.enterPassword(password);
-		logInSteps.clickOnSingInButton();
+		
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.assertText(filter);
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
