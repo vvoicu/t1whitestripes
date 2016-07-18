@@ -14,7 +14,8 @@ import utils.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "newVacationRequest.csv")
-public class NewVacationRequestTest extends BaseTest{
+
+public class NewVacationRequestTest extends BaseTestEmanuel{
 
  @Steps
  public VacationSteps vacationSteps;
