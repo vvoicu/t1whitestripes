@@ -9,16 +9,20 @@ import com.selenium.steps.andrada.VacationSteps;
 import com.selenium.steps.emanuel.NewVacationRequestSteps;
 import com.selenium.steps.emanuel.VacationTypeSteps;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import utils.Constants;
 
-@RunWith(SerenityRunner.class)
-public class VacationTypeTest {
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "vacationType.csv")
+
+public class VacationTypeTest extends BaseTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@Steps
 	public LogInSteps logInSteps;
 	@Steps
@@ -28,21 +32,16 @@ public class VacationTypeTest {
 	@Steps
 	public VacationTypeSteps vacationTypeSteps;
 
-	String url = "http://172.22.4.88:9090/login";
-	String userName = "petru.radac";
-	String passWord = "test";
-	String requestType = "Special vacation";
-	String requestTypeName = "Funeral";
-	String text = "Filter requests";
+	private String username, password, filter, requestType, requestTypeName;
 
 	@Test
 	public void vacationTest() {
-		logInSteps.openEvoPortalPage(url);
-		logInSteps.enterUserName(userName);
-		logInSteps.enterPassword(passWord);
+		logInSteps.openEvoPortalPage(Constants.URL);
+		logInSteps.enterUserName(username);
+		logInSteps.enterPassword(password);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.vacationPageTopText(text);
+		vacationSteps.vacationPageTopText(filter);
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
 		vacationTypeSteps.clickVacationType(requestType, requestTypeName);
 		newVacationRequestSteps.selectSave();
