@@ -16,7 +16,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 import utils.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "myFreeDays.csv")
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "myFreeDays.csv")
 
 public class MyFreeDaysTest {
 
@@ -25,29 +25,28 @@ public class MyFreeDaysTest {
 
 	@Steps
 	public LogInSteps logInSteps;
-
 	@Steps
 	public VacationSteps vacationSteps;
-
 	@Steps
 	public MyFreeDaysSteps myFreeDaysSteps;
 
-	private String url,username,password,filter;
-@Test
+	private String username, password, filter;
+
+	@Test
 	public void myFreeDays() {
 
-		logInSteps.openEvoPortalPage(url);
+		logInSteps.openEvoPortalPage(Constants.URL);
 		logInSteps.enterUserName(username);
 		logInSteps.enterPassword(password);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.assertText(filter);
-		
+
 		myFreeDaysSteps.clickOnMyFreeDays();
 		myFreeDaysSteps.clickOnYear1();
 		myFreeDaysSteps.clickOnYear2();
 		myFreeDaysSteps.backButton();
-		
+
 	}
 
 }
