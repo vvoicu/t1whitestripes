@@ -18,10 +18,7 @@ import utils.Constants;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "myFreeDays.csv")
 
-public class MyFreeDaysTest {
-
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
+public class MyFreeDaysTest extends BaseTest {
 
 	@Steps
 	public LogInSteps logInSteps;
@@ -30,18 +27,13 @@ public class MyFreeDaysTest {
 	@Steps
 	public MyFreeDaysSteps myFreeDaysSteps;
 
-	private String username, password, filter;
+	private String filter;
 
 	@Test
 	public void myFreeDays() {
 
-		logInSteps.openEvoPortalPage(Constants.URL);
-		logInSteps.enterUserName(username);
-		logInSteps.enterPassword(password);
-		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.assertText(filter);
-
 		myFreeDaysSteps.clickOnMyFreeDays();
 		myFreeDaysSteps.clickOnYear1();
 		myFreeDaysSteps.clickOnYear2();

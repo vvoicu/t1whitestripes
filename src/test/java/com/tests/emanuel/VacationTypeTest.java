@@ -18,7 +18,8 @@ import utils.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value=Constants.CSV_FILES_PATH + "vacationType.csv")
-public class VacationTypeTest {
+
+public class VacationTypeTest extends BaseTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;

@@ -15,12 +15,10 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import utils.Constants;
 
+//@RunWith(SerenityRunner.class)
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "newVacationRequest.csv")
-public class NewVacationRequestTest {
-
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
+public class NewVacationRequestTest extends BaseTest{
 
 	@Steps
 	public VacationSteps vacationSteps;
@@ -29,14 +27,11 @@ public class NewVacationRequestTest {
 	@Steps
 	public NewVacationRequestSteps newVacationRequestSteps;
 
-	private String username, password, comment, filter;
+	private String comment, filter;
 
 	@Test
 	public void evoPortalVacation() {
-		logInSteps.openEvoPortalPage(Constants.URL);
-		logInSteps.enterUserName(username);
-		logInSteps.enterPassword(password);
-		logInSteps.clickOnSingInButton();
+		
 		vacationSteps.clickOnVacationOption();
 		vacationSteps.assertText(filter);
 
