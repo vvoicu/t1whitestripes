@@ -2,15 +2,13 @@ package com.tests.emanuel;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.LogInSteps;
 import com.selenium.steps.andrada.VacationSteps;
 import com.selenium.steps.emanuel.MyFreeDaysSteps;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
+
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import utils.Constants;
@@ -33,7 +31,7 @@ public class MyFreeDaysTest extends BaseTest {
 	public void myFreeDays() {
 
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(filter);
+		vacationSteps.vacationPageTopText(filter);
 		myFreeDaysSteps.clickOnMyFreeDays();
 		myFreeDaysSteps.clickOnYear1();
 		myFreeDaysSteps.clickOnYear2();

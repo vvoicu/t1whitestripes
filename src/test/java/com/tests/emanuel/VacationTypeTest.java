@@ -10,7 +10,6 @@ import com.selenium.steps.emanuel.NewVacationRequestSteps;
 import com.selenium.steps.emanuel.VacationTypeSteps;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
@@ -36,7 +35,7 @@ public class VacationTypeTest extends BaseTest {
 	public void vacationTest() {
 		
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(filter);
+		vacationSteps.vacationPageTopText(filter);
 		newVacationRequestSteps.clickOnNewVacationRequestPage();
 		vacationTypeSteps.clickVacationType(requestType, requestTypeName);
 		newVacationRequestSteps.selectSave();

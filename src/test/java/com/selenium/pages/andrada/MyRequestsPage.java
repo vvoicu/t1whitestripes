@@ -26,7 +26,7 @@ public class MyRequestsPage extends PageObject {
 	@FindBy(css = "input.aui-button-input")
 	private WebElementFacade applyButton;
 
-	@FindBy(css = "div.filter-content div[class$='aui-column-first ']  span.aui-field-content ")
+	@FindBy(css = "div.filter-content div[class$='aui-column-first '] span.aui-field-content")
 	private List<WebElement> vacationTypeFilterContainerList;
 
 	String vacationTypeFilterNameCssSelector = "label";
@@ -71,7 +71,6 @@ public class MyRequestsPage extends PageObject {
 	public void clickVacationTypeFilterList(String filter) {
 		boolean filterFound = false;
 		for (WebElement filterElement1 : vacationTypeFilterContainerList) {
-
 			WebElement filterName = filterElement1.findElement(By.cssSelector(vacationTypeFilterNameCssSelector));
 			if (filterName.getText().contentEquals(filter)) {
 				filterFound = true;

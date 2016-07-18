@@ -14,6 +14,7 @@ import com.tests.LogInTest;
 		FilterAndTableTest.class,
 		FilterCheckboxesTest.class,
 		FilterListTest.class,
+		FreeDaysHistoryTest.class,
 		FutureVacationsCheckboxTest.class,
 })
 public class TestSuiteForMyRequests {
