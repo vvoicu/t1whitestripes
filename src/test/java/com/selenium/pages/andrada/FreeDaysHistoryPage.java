@@ -15,10 +15,15 @@ public class FreeDaysHistoryPage extends PageObject {
 	@FindBy(css = "div > div:nth-child(1) > ul > li:nth-child(5) > a")
 	private WebElementFacade freeVacationHistory;
 	
-	@FindBy(css = "div.aui-column-content.aui-column-content-first.column-three-content")
+	@FindBy(css = "div.filter-content-history div[class$='aui-column-first '] span.aui-field-content")
 	private List<WebElement> freeDaysHistoryTypeFilter;
 	String freeDaysHistoryTypeFilterName = "label";
 	String freeDaysHistoryTypeFilterCheckBox = "span input[type='checkbox']";
+	
+	@FindBy(css = "span.result-column-name a")
+	private List<WebElement> tableCategoryNames;
+	
+	
 	
 	public void clickOnFreeVacationHistory(){
 		freeVacationHistory.click();
