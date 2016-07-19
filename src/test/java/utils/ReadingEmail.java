@@ -13,11 +13,11 @@ import com.sun.mail.imap.IMAPFolder;
 
 public class ReadingEmail {
 
-	public static String mailUser = "andrada.maniac@gmail.com";
-	public static String mailPassword = "musiccolor";
+	public static String mailUser = "andrada.maniac@evozon.com";
+	public static String mailPassword = "Musiccolor1!";
 
 	public static void main(String[] args) throws MessagingException, IOException {
-		final int MAX_MESSAGES=10;
+
 		IMAPFolder folder = null;
 		Store store = null;
 
@@ -27,7 +27,7 @@ public class ReadingEmail {
 		Session session = Session.getDefaultInstance(props, null);
 
 		store = session.getStore("imaps");
-		store.connect("imap.googlemail.com", mailUser, mailPassword);
+		store.connect("mail.evozon.com", 993, mailUser, mailPassword);
 
 		folder = (IMAPFolder) store.getFolder("inbox");
 
@@ -45,12 +45,10 @@ public class ReadingEmail {
 	public static void printMessages(Message[] messages) throws MessagingException, IOException {
 
 		String subject = null;
-		
+
 		for (int i = messages.length; i >= 0; i--) {
 			Message msg = messages[i];
-			
 			System.out.println("*****************************************************************************");
-			
 			System.out.println("messages.length---" + messages.length);
 			System.out.println("MESSAGE " + (i + 1) + ":");
 
@@ -67,4 +65,4 @@ public class ReadingEmail {
 
 		}
 	}
-	     }
+}
