@@ -71,10 +71,10 @@ public class CheckingMailsEmanuel {
 
 		// mail server connection parameters
 
-		String host = "imap.gmail.com";
+		String host = "mail.evozon.com";
 		String mailStoreType = "imaps";
-		String username = "emanuelradac271093@gmail.com";
-		String password = "emanuelradac93";
+		String username = "petru.radac@evozon.com";
+		String password = "EmanuelRadac93!";
 
 		check(host, mailStoreType, username, password);
 
