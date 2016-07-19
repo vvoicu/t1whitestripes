@@ -23,11 +23,10 @@ public class FilterAndTableTest extends BaseTest{
 	public MyRequestsSteps myRequestsSteps;
 
 	
-	String text = "Filter requests";
-	String textToAssert = "No vacations were found.";
-	String text2 = "Holyday";
-	String name = "Andrada Maniac";
-	String assertVacation = "Vacation Request";
+	String totPageText = "Filter requests";
+	String filterNameOnTable = "Holyday";
+	String nameInTableList = "Andrada Maniac";
+	String vacationRequestTopPageText = "Vacation Request";
 	@Test
 	public void filterAndTableTest() {
 		logInSteps.openEvoPortalPage(url);
@@ -35,13 +34,13 @@ public class FilterAndTableTest extends BaseTest{
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(totPageText);
 		myRequestsSteps.clickOnMyRequests();
 		myRequestsSteps.clickOnHolidayCheckBox();
 		myRequestsSteps.clickOnApplyButton();
-		myRequestsSteps.assertOnSelectedFilterInTableList(text2);
-		myRequestsSteps.clickOnNameInTableList(name);
-		myRequestsSteps.assertTextInStateVacationRequest(assertVacation);
+		myRequestsSteps.assertOnSelectedFilterInTableList(filterNameOnTable);
+		myRequestsSteps.clickOnNameInTableList(nameInTableList);
+		myRequestsSteps.assertTextInStateVacationRequest(vacationRequestTopPageText);
 
 	}
 

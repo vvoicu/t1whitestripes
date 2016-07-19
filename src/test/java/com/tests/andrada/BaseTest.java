@@ -1,10 +1,13 @@
 package com.tests.andrada;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
@@ -21,7 +24,7 @@ public class BaseTest {
 	public String passWord;
 	
 	@Before
-	public void datSetup() {
+	public void dataSetup() {
 
 		Properties prop = new Properties();
 		InputStream input = null;
@@ -52,6 +55,17 @@ public class BaseTest {
 				}
 			}
 		}
+	}
+	@After
+	public void dataWrite() throws IOException {
+
+		Properties prop = new Properties();
+		OutputStream output = null;
+		output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+		prop.setProperty("lalala", "nonoo");
+		prop.setProperty("user", "andrada");
+		prop.store(output, "Write something");
 
 	}
 }
+

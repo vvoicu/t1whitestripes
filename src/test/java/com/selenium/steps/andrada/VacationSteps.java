@@ -15,7 +15,7 @@ public class VacationSteps extends ScenarioSteps {
 		vacationPage.clickOnVacationOption();	
 		}
 	@Step
-	public void assertText(String text){
+	public void vacationPageTopText(String text){
 		vacationPage.assertText(text);
 	}
 }

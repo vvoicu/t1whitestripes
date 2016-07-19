@@ -13,7 +13,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class FreeDaysHistoryTest {
+public class FreeDaysHistoryTest extends BaseTest{
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -24,11 +24,11 @@ public class FreeDaysHistoryTest {
 	@Steps
 	public FreeDaysHistorySteps freeDaysHistorySteps;
 
-	String url = "http://172.22.4.88:9090/login";
-	String userName = "andrada.maniac";
-	String passWord = "test1";
-	String text = "Filter requests";
-	String filter = "Anniversary";
+//	String url = "http://172.22.4.88:9090/login";
+//	String userName = "andrada.maniac";
+//	String passWord = "test1";
+	String pageTitle = "Filter requests";
+	String filterName = "Anniversary";
 
 	@Test
 	public void freeDaysHistory() {
@@ -37,8 +37,8 @@ public class FreeDaysHistoryTest {
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(pageTitle);
 		freeDaysHistorySteps.clickOnFreeVacationHistory();
-		freeDaysHistorySteps.clickOnFreeDaysHistoryTypeFilter(filter);
+		freeDaysHistorySteps.clickOnFreeDaysHistoryTypeFilter(filterName);
 	}
 }

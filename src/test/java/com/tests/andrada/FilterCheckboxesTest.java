@@ -1,5 +1,11 @@
 package com.tests.andrada;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Properties;
+
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +19,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class FilterCheckboxesTest {
+public class FilterCheckboxesTest extends BaseTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -24,11 +30,10 @@ public class FilterCheckboxesTest {
 	@Steps
 	public MyRequestsSteps myRequestsSteps;
 	
-	String url = "http://172.22.4.88:9090/login";
-	String userName = "andrada.maniac";
-	String passWord = "test1";
-	String text = "Filter requests";
-	String textToAssert = "No vacations were found.";
+	
+
+	String pageTitle = "Filter requests";
+	String noticeMessage = "No vacations were found.";
 
 	@Test
 	public void myRequestsCheckBoxes() {
@@ -37,16 +42,28 @@ public class FilterCheckboxesTest {
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 		vacationSteps.clickOnVacationOption();
-		vacationSteps.assertText(text);
+		vacationSteps.vacationPageTopText(pageTitle);
 		myRequestsSteps.clickOnMyRequests();
 		myRequestsSteps.clickOnHolidayCheckBox();
 		myRequestsSteps.clickOnOneToFiveCheckBox();
 		myRequestsSteps.clickOnPendingCheckBox();
 		myRequestsSteps.clickOnApplyButton();
-		myRequestsSteps.assertText(textToAssert);
+//		myRequestsSteps.assertText(noticeMessage);
 		myRequestsSteps.clickOnHolidayCheckBox();
 		myRequestsSteps.clickOnOneToFiveCheckBox();
 		myRequestsSteps.clickOnPendingCheckBox();
 		myRequestsSteps.clickOnApplyButton();
 	}
+	@After
+	public void dataWrite() throws IOException {
+
+		Properties prop = new Properties();
+		OutputStream output = null;
+		output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+		prop.setProperty("lalala", "nonoo");
+		prop.setProperty("user", "andrada");
+		prop.store(output, "Write something");
+
+	}
 }
+
