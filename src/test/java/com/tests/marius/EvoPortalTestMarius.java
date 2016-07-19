@@ -8,23 +8,20 @@ import com.selenium.steps.LogInSteps;
 import com.selenium.steps.marius.DayPickerSteps;
 import com.selenium.steps.marius.InboxSteps;
 
-import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
+import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 
 
-@RunWith(SerenityParameterizedRunner.class)
-public class EvoPortalTestMarius {
+@RunWith(SerenityRunner.class)
+public class EvoPortalTestMarius extends BaseTestMarius {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
     @Steps
     public LogInSteps logInSteps;
-    String url = "http://172.22.4.88:9090/login";
-    String userName = "marius.chesovan";
-    String passWord = "010485";
             
     @Steps
     public InboxSteps inboxSteps;
