@@ -6,56 +6,62 @@ import java.util.Properties;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
+import javax.mail.Store;
 
-import com.sun.mail.pop3.POP3Store;
+import com.sun.mail.imap.IMAPFolder;
 
 public class MailMarius {
 
-	public static void main(String[] args) {
+	public static String mailUser = "marius.testing.activity@gmail.com";
+	public static String mailPassword = "01048573";
 
-		String mailPop3Host = "gmail.com";
-		String mailStoreType = "pop3";
-		String mailUser = "marius.testing.activity";
-		String mailPassword = "01048573";
+	public static void main(String[] args) throws MessagingException, IOException {
+		IMAPFolder folder = null;
+		Store store = null;
 
-		receiveEmail(mailPop3Host, mailStoreType, mailUser, mailPassword);
+		Properties props = System.getProperties();
+		props.setProperty("mail.store.protocol", "imaps");
+
+		Session session = Session.getDefaultInstance(props, null);
+
+		store = session.getStore("imaps");
+		store.connect("imap.googlemail.com", mailUser, mailPassword);
+
+		folder = (IMAPFolder) store.getFolder("inbox");
+
+		if (!folder.isOpen())
+			folder.open(Folder.READ_WRITE);
+
+		Message[] messages = folder.getMessages();
+		System.out.println("No of Messages : " + folder.getMessageCount());
+		System.out.println("No of Unread Messages : " + folder.getUnreadMessageCount());
+		System.out.println(messages.length);
+
+		printMessages(messages);
 	}
 
-	public static void receiveEmail(String pop3Host, String storeType, String user, String password) {
+	public static void printMessages(Message[] messages) throws MessagingException, IOException {
 
-		try {
-			Properties properties = new Properties();
-			properties.put("mail.pop3.host", pop3Host);
-			Session emailSession = Session.getDefaultInstance(properties);
+		String subject = null;
+		for (int i = 0; i < messages.length; i++) {
 
-			POP3Store emailStore = (POP3Store) emailSession.getStore(storeType);
-			emailStore.connect(user, password);
+			System.out.println("*****************************************************************************");
+			System.out.println("MESSAGE " + (i + 1) + ":");
+			Message msg = messages[i];
 
-			Folder emailFolder = emailStore.getFolder("INBOX");
-			emailFolder.open(Folder.READ_ONLY);
+			subject = msg.getSubject();
 
-			Message[] messages = emailFolder.getMessages();
-			for (int i = 0; i < messages.length; i++) {
-				Message message = messages[i];
-				System.out.println("==============================");
-				System.out.println("Email #" + (i + 1));
-				System.out.println("Subject: " + message.getSubject());
-				System.out.println("From: " + message.getFrom()[0]);
-				System.out.println("Text: " + message.getContent().toString());
-			}
+			System.out.println("Subject: " + subject);
+			System.out.println("From: " + msg.getFrom()[0]);
+			System.out.println("To: " + msg.getAllRecipients()[0]);
+			System.out.println("Date: " + msg.getReceivedDate());
+			System.out.println("Size: " + msg.getSize());
+			System.out.println(msg.getFlags());
+			System.out.println("Body: \n" + msg.getContent());
+			System.out.println(msg.getContentType());
 
-			emailFolder.close(false);
-			emailStore.close();
-		} catch (NoSuchProviderException e) {
-			e.printStackTrace();
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-
 	}
 
 }
