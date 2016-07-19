@@ -155,4 +155,20 @@ public class MyRequestsPage extends PageObject {
 		Assert.assertTrue(dateElement.getText().contains(text));
 		
 	}
+	public void clickOnStatusElementInList(String elementText) {
+		List<WebElement> elementsList = getDriver().findElements(By.tagName("td[class*='col-6'] a"));
+		for (WebElement e : elementsList) {
+			System.out.println("element text: " + e.getText());
+			if (e.getText().contentEquals(elementText)) {
+				e.click();
+				break;
+			}
+		}
+	}
+	public void clickOnWithdrawButton(){
+		WebElement withdrawButton = getDriver().findElement(By.cssSelector("evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest"));
+		withdrawButton.clear();
+	}
 }
+
+

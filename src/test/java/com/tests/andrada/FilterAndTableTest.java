@@ -27,6 +27,7 @@ public class FilterAndTableTest extends BaseTest{
 	String filterNameOnTable = "Holyday";
 	String nameInTableList = "Andrada Maniac";
 	String vacationRequestTopPageText = "Vacation Request";
+	String statusText = "Pending";
 	@Test
 	public void filterAndTableTest() {
 		logInSteps.openEvoPortalPage(url);
@@ -41,6 +42,7 @@ public class FilterAndTableTest extends BaseTest{
 		myRequestsSteps.assertOnSelectedFilterInTableList(filterNameOnTable);
 		myRequestsSteps.clickOnNameInTableList(nameInTableList);
 		myRequestsSteps.assertTextInStateVacationRequest(vacationRequestTopPageText);
+		myRequestsSteps.clickOnStatusElementInList(statusText);
 
 	}
 
