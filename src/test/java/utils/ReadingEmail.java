@@ -48,7 +48,7 @@ public class ReadingEmail {
 		
 		for (int i = messages.length; i >= 0; i--) {
 			Message msg = messages[i];
-			Message messageReverse[] = reverseMessageOrder(messages);
+			
 			System.out.println("*****************************************************************************");
 			
 			System.out.println("messages.length---" + messages.length);
@@ -67,14 +67,4 @@ public class ReadingEmail {
 
 		}
 	}
-
-	private static Message[] reverseMessageOrder(Message[] messages) {
-	          Message revMessages[]= new Message[messages.length];
-	          int i=messages.length-1;
-	          for (int j=0; j < messages.length; j++, i--) {
-	               revMessages[j] = messages;
-	          }
-	          return revMessages;
-
 	     }
-	}
