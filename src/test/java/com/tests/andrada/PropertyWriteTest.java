@@ -1,58 +1,44 @@
 
-	package com.tests.andrada;
+package com.tests.andrada;
 
-import java.io.FileInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
-import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.openqa.selenium.WebDriver;
 
 import net.thucydides.core.annotations.Managed;
 import utils.Constants;
 
+@RunWith(JUnit4.class)
 public class PropertyWriteTest {
-	
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
-	public String url;
-	public String userName;
-	public String passWord;
-	
-	@Before
-	public void dataSetup() {
+
+	String filePath = Constants.CONFIG_FILE_PATH;
+
+	@Test
+	public void dataWrite() throws IOException {
+
+		File f = new File(filePath);
+		OutputStream out = new FileOutputStream(f);
 
 		Properties prop = new Properties();
-		InputStream output = null;
+		OutputStream output = null;
 
-		try {
-
-			output = new FileInputStream(Constants.CONFIG_FILE_PATH);
-
-			// load a properties file
-			prop.load(output);
-			
-			url = prop.getProperty(" url");
-			userName = prop.getProperty("userName");
-			passWord = prop.getProperty("password");
-//			// get the property value and print it out
-//			System.out.println(prop.getProperty("url"));
-//			System.out.println(prop.getProperty("userName"));
-//			System.out.println(prop.getProperty("password"));
-
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+		if (!f.exists()) {
+			f.createNewFile();
 		}
+
+		prop.setProperty("lalala", "11");
+		prop.setProperty("user", "111");
+		prop.store(out, "This is an optional header comment string");
 
 	}
 }
