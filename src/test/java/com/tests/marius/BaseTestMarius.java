@@ -1,30 +1,27 @@
-package com.tests.andrada;
+package com.tests.marius;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Properties;
 
-import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
 import net.thucydides.core.annotations.Managed;
 import utils.Constants;
 
-public class BaseTest {
-	
+public class BaseTestMarius {
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	public String url;
 	public String userName;
 	public String passWord;
-	
+
 	@Before
-	public void dataSetup() {
+	public void datSetup() {
 
 		Properties prop = new Properties();
 		InputStream input = null;
@@ -35,14 +32,14 @@ public class BaseTest {
 
 			// load a properties file
 			prop.load(input);
-			
+
 			url = prop.getProperty("url");
 			userName = prop.getProperty("userName");
 			passWord = prop.getProperty("password");
-//			get the property value and print it out
-//			System.out.println(prop.getProperty("url"));
-//			System.out.println(prop.getProperty("userName"));
-//			System.out.println(prop.getProperty("password"));
+			// // get the property value and print it out
+			// System.out.println(prop.getProperty("url"));
+			// System.out.println(prop.getProperty("userName"));
+			// System.out.println(prop.getProperty("password"));
 
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -55,17 +52,21 @@ public class BaseTest {
 				}
 			}
 		}
-	}
-	@After
-	public void dataWrite() throws IOException {
-
-		Properties prop = new Properties();
-		OutputStream output = null;
-		output = new FileOutputStream(getClass().getSimpleName() + ".properties");
-		prop.setProperty("lalala", "nonoo");
-		prop.setProperty("user", "andrada");
-		prop.store(output, "Write something");
 
 	}
+
+//	@After
+//	public void dataPersistance() throws IOException {
+//		Properties prop = new Properties();
+//		OutputStream output = null;
+//
+//		// output = new FileOutputStream("configMariusOutput.properties");
+//		output = new FileOutputStream(getClass().getSimpleName() + ". properties");
+//
+//		prop.setProperty("randomNumber", "73");
+//		prop.setProperty("me", "Myself");
+//
+//		prop.store(output, "Generate random number from test");
+//	}
+
 }
-

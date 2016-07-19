@@ -16,7 +16,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "src/test/resources/csv/mariusTest.csv", separator= ',' )
-public class CreateMultipleVacationRequestsTest {
+public class CreateMultipleVacationRequestsTest extends BaseTestMarius {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
