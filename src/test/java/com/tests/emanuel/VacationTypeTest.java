@@ -16,7 +16,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 import utils.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "vacationType.csv")
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "VacationType.csv")
 
 public class VacationTypeTest extends BaseTestEmanuel {
 
