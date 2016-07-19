@@ -1,0 +1,103 @@
+No of Messages : 5
+No of Unread Messages : 0
+5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MESSAGE 1:
+Subject: Three tips to get the most out of Gmail
+From: Gmail Team <mail-noreply@google.com>
+To: Tester Activity <marius.testing.activity@gmail.com>
+Date: Tue Jul 19 11:05:26 EEST 2016
+Size: 6932
+Body: javax.mail.internet.MimeMultipart@74ad1f1f
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MESSAGE 2:
+Subject: The best of Gmail, wherever you are
+From: Gmail Team <mail-noreply@google.com>
+To: Tester Activity <marius.testing.activity@gmail.com>
+Date: Tue Jul 19 11:05:26 EEST 2016
+Size: 4848
+Body: javax.mail.internet.MimeMultipart@462d5aee
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MESSAGE 3:
+Subject: Stay more organized with Gmail's inbox
+From: Gmail Team <mail-noreply@google.com>
+To: Tester Activity <marius.testing.activity@gmail.com>
+Date: Tue Jul 19 11:05:26 EEST 2016
+Size: 7762
+Body: javax.mail.internet.MimeMultipart@757942a1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MESSAGE 4:
+Subject: Access for less secure apps has been turned on
+From: Google <no-reply@accounts.google.com>
+To: marius.testing.activity@gmail.com
+Date: Tue Jul 19 11:09:33 EEST 2016
+Size: 10287
+Body: javax.mail.internet.MimeMultipart@66d1af89
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MESSAGE 5:
+Subject: Delivery Status Notification (Failure)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: marius.testing.activity@gmail.com
+Date: Tue Jul 19 13:30:53 EEST 2016
+Size: 6248
+Body: Delivery to the following recipient failed permanently:
+
+     to-email@gmail.com
+
+Technical details of permanent failure: 
+Google tried to deliver your message, but it was rejected by the server for the recipient domain gmail.com by gmail-smtp-in.l.google.com. [2a00:1450:400c:c0b::1b].
+
+The error that the other server returned was:
+550-5.1.1 The email account that you tried to reach does not exist. Please try
+550-5.1.1 double-checking the recipient's email address for typos or
+550-5.1.1 unnecessary spaces. Learn more at
+550 5.1.1  https://support.google.com/mail/answer/6596 i130si16244259wme.120 - gsmtp
+
+
+----- Original message -----
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=date:from:to:message-id:subject:mime-version
+         :content-transfer-encoding;
+        bh=eq4j0/i/WuPRUW0gINjBMBa6IaH0AF06axIiiN+JY3k=;
+        b=tc/AkxFcAWkojMqo7ZsexJoOvWVxAkCYTdSd6pGVOzP/6/weYu9T03vPx74mIxFM1d
+         TFl9O4Nxr2yJxl/ZR1Mod/z5siZehRIRIxH3Uxe6WE/EVR/1y7Lmt9R3hNdWRkFNjEA4
+         2UNNlo1iZecbcWfYGfexr2Z3IdbFT8X/rNVdQuljw/kg6Cbjh0pdiOhViiwceKq7Pcsy
+         HE1rwGjxZC7azCJHCWf/PrWiIG8nnkRcItOOSpzG/f9jsLDyyQ81DqMcbMdBq0OpyPoo
+         b+BMCsXAwVXeYL9F12ziHraMny/vHyH6q7Wo682QBTcl0jc876UTlkkCX+H1sNDmkvpR
+         N0YQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:date:from:to:message-id:subject:mime-version
+         :content-transfer-encoding;
+        bh=eq4j0/i/WuPRUW0gINjBMBa6IaH0AF06axIiiN+JY3k=;
+        b=cCDsKpYbqF5T83xlZOGwKZiRTtD184Xn8SvtfnARMZ674KvMt/ApbkidCjIqfUpe2B
+         f8zMeXxzFn3h/OUr1BGhyfSN2MVv2DI3P2oUa2cwzg7liVZqKK7NPUeKfNQkRdnxeriQ
+         Jc6yRN0Cg82kND9B6I4VvuUOo9N5N5AcN2J7H0N+duOc0oZn0nsA0aYv+B/lg0rDjO/3
+         rHivIqi8iIB2gdnX1MRAOVNTEYXBgN7qtPE+TnJLROqmCzie7JU0o1Rj4SsbDH10s67e
+         eFvR5Fs/EUulHyI6YshndnK8cY3VgPCBNOqC3idR/hVe4pWOPz324BC8+OmWlzskGG3N
+         9P8g==
+X-Gm-Message-State: ALyK8tJyzQi1dbb14uCKObyiFLn+YYU+xLx3S/L8D+BYLCZRnLjqJTf0K4jdSEzKOCfu5w==
+X-Received: by 10.28.69.14 with SMTP id s14mr3233928wma.49.1468924252609;
+        Tue, 19 Jul 2016 03:30:52 -0700 (PDT)
+Return-Path: <marius.testing.activity@gmail.com>
+Received: from 172.22.130.193 ([91.195.44.252])
+        by smtp.gmail.com with ESMTPSA id 207sm21702528wmb.7.2016.07.19.03.30.51
+        for <to-email@gmail.com>
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Tue, 19 Jul 2016 03:30:52 -0700 (PDT)
+Date: Tue, 19 Jul 2016 03:30:52 -0700 (PDT)
+From: marius.testing.activity@gmail.com
+X-Google-Original-From: from-email@gmail.com
+To: to-email@gmail.com
+Message-ID: <2121744517.0.1468924249312.JavaMail.mariuschesovan@EVO115>
+Subject: Testing Subject
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Dear Mail Crawler,
+
+ No spam to my email, please!
+
