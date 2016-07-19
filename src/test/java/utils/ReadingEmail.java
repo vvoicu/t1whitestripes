@@ -1,71 +1,80 @@
 package utils;
 
-
-
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Folder;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 
+import com.sun.mail.imap.IMAPFolder;
+
 public class ReadingEmail {
 
-   public static void check(String host, String storeType, String user,
-      String password) 
-   {
-      try {
+	public static String mailUser = "andrada.maniac@gmail.com";
+	public static String mailPassword = "musiccolor";
 
-      //create properties field
-      Properties properties = new Properties();
+	public static void main(String[] args) throws MessagingException, IOException {
+		final int MAX_MESSAGES=10;
+		IMAPFolder folder = null;
+		Store store = null;
 
-      properties.put("imap.gmail.com", host);
-      properties.put("imap.gmail.com", "993");
-      properties.put("gmail.com.starttls.enable", "true");
-      Session emailSession = Session.getDefaultInstance(properties);
-  
-      //create the GMAIL store object and connect with the pop server
-      Store store = emailSession.getStore("gmail");
+		Properties props = System.getProperties();
+		props.setProperty("mail.store.protocol", "imaps");
 
-      store.connect(host, user, password);
+		Session session = Session.getDefaultInstance(props, null);
 
-      //create the folder object and open it
-      Folder emailFolder = store.getFolder("Inbox");
-      emailFolder.open(Folder.READ_ONLY);
+		store = session.getStore("imaps");
+		store.connect("imap.googlemail.com", mailUser, mailPassword);
 
-      // retrieve the messages from the folder in an array and print it
-      Message[] messages = emailFolder.getMessages();
-      System.out.println("messages.length---" + messages.length);
+		folder = (IMAPFolder) store.getFolder("inbox");
 
-      for (int i = 0, n = messages.length; i < n; i++) {
-         Message message = messages[i];
-         System.out.println("---------------------------------");
-         System.out.println("Email Number " + (i + 1));
-         System.out.println("Subject: " + message.getSubject());
-         System.out.println("From: " + message.getFrom()[0]);
-         System.out.println("Text: " + message.getContent().toString());
+		if (!folder.isOpen())
+			folder.open(Folder.READ_WRITE);
 
-      }
+		Message[] messages = folder.getMessages();
+		System.out.println("No of Messages : " + folder.getMessageCount());
+		System.out.println("No of Unread Messages : " + folder.getUnreadMessageCount());
+		System.out.println(messages.length);
 
-      //close the store and folder objects
-      emailFolder.close(false);
-      store.close();
+		printMessages(messages);
+	}
 
-      
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+	public static void printMessages(Message[] messages) throws MessagingException, IOException {
 
-   public static void main(String[] args) {
+		String subject = null;
+		
+		for (int i = messages.length; i >= 0; i--) {
+			Message msg = messages[i];
+			Message messageReverse[] = reverseMessageOrder(messages);
+			System.out.println("*****************************************************************************");
+			
+			System.out.println("messages.length---" + messages.length);
+			System.out.println("MESSAGE " + (i + 1) + ":");
 
-      String host = "pop.gmail.com";
-      String mailStoreType = "pop3";
-      String username = "andrada.maniac@gmail.com";
-      String password = "musiccolor";// change accordingly
+			subject = msg.getSubject();
 
-      check(host, mailStoreType, username, password);
+			System.out.println("Subject: " + subject);
+			System.out.println("From: " + msg.getFrom()[0]);
+			System.out.println("To: " + msg.getAllRecipients()[0]);
+			System.out.println("Date: " + msg.getReceivedDate());
+			System.out.println("Size: " + msg.getSize());
+			System.out.println(msg.getFlags());
+			System.out.println("Body: \n" + msg.getContent());
+			System.out.println(msg.getContentType());
 
-   }
+		}
+	}
 
-}
+	private static Message[] reverseMessageOrder(Message[] messages) {
+	          Message revMessages[]= new Message[messages.length];
+	          int i=messages.length-1;
+	          for (int j=0; j < messages.length; j++, i--) {
+	               revMessages[j] = messages;
+	          }
+	          return revMessages;
+
+	     }
+	}
