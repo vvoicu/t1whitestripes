@@ -39,7 +39,7 @@ public class BaseTest {
 			url = prop.getProperty("url");
 			userName = prop.getProperty("userName");
 			passWord = prop.getProperty("password");
-//			// get the property value and print it out
+//			get the property value and print it out
 //			System.out.println(prop.getProperty("url"));
 //			System.out.println(prop.getProperty("userName"));
 //			System.out.println(prop.getProperty("password"));
