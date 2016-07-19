@@ -1,5 +1,6 @@
 package com.tests.emanuel;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class BaseTestEmanuel {
 
 	Properties prop = new Properties();
 	InputStream input = null;
-	
+
 	@Steps
 	LogInSteps logInSteps;
 
@@ -41,36 +42,43 @@ public class BaseTestEmanuel {
 		url = prop.getProperty("url");
 		userName = prop.getProperty("userName");
 		passWord = prop.getProperty("password");
-		
+
 		System.out.println(url);
 		System.out.println(userName);
 		System.out.println(passWord);
-		
+
 		logInSteps.openEvoPortalPage(url);
 		logInSteps.enterUserName(userName);
 		logInSteps.enterPassword(passWord);
 		logInSteps.clickOnSingInButton();
 
 	}
-	
+
+	String filePath = Constants.CONFIG_FILE_PATH;
+
 	@After
-	public void dataPersistance() throws IOException{
-		
+	public void dataWrite() throws IOException {
+
+		File f = new File(filePath);
+		OutputStream out = new FileOutputStream(f);
+
 		Properties prop = new Properties();
 		OutputStream output = null;
 
-		
+		if (!f.exists()) {
+			f.createNewFile();
+		}
 
-			output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+		// output = new FileOutputStream(getClass().getSimpleName() +
+		// ".properties");
 
-			// set the properties value
-			prop.setProperty("database", "localhost");
-			prop.setProperty("dbuser", "mkyong");
-			prop.setProperty("dbpassword", "password");
+		// set the properties value
+		prop.setProperty("test2", "fisier");
+		prop.setProperty("username", "petru.radac");
+		prop.setProperty("dbpassword", "password");
 
-			// save properties to project root folder
-			prop.store(output, "Properties file");
+		// save properties to project root folder
+		prop.store(output, "Properties file");
 
-	  }
+	}
 }
-
