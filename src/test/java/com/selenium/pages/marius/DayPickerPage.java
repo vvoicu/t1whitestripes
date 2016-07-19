@@ -51,10 +51,10 @@ public class DayPickerPage extends PageObject {
 
 	public void hoverUserAvatar() {
 
-		// JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//		 JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		// WebElement element =
-		// getDriver().findElement(By.cssSelector("li[id*='userAvatar']"));
-		// js.executeScript("$('.user-avatar').hover()");
+//		 getDriver().findElement(By.cssSelector("li[id*='userAvatar']"));
+//		 js.executeScript($('.user-avatar').append('<div class="aui-menu-content"><ul><li><span class="user-links">1</span></li><li><span class="user-links">2</span></li></ul></div>'));
 
 		// waitABit(5000);
 		// element(By.cssSelector(".sign-out")).waitUntilVisible();
