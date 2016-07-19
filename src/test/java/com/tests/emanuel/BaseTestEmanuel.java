@@ -59,18 +59,10 @@ public class BaseTestEmanuel {
 	@After
 	public void dataWrite() throws IOException {
 
-		File f = new File(filePath);
-		OutputStream out = new FileOutputStream(f);
-
 		Properties prop = new Properties();
 		OutputStream output = null;
 
-		if (!f.exists()) {
-			f.createNewFile();
-		}
-
-		// output = new FileOutputStream(getClass().getSimpleName() +
-		// ".properties");
+		 output = new FileOutputStream(getClass().getSimpleName() + ".properties");
 
 		// set the properties value
 		prop.setProperty("test2", "fisier");
