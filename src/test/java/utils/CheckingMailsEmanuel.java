@@ -2,9 +2,11 @@ package utils;
 
 import java.util.Properties;
 
+import javax.mail.BodyPart;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
@@ -17,35 +19,38 @@ public class CheckingMailsEmanuel {
 			// create properties field
 			Properties properties = new Properties();
 
-			properties.put("mail.pop3.host", host);
-			properties.put("mail.pop3.port", "995");
-			properties.put("mail.pop3.starttls.enable", "true");
+			properties.put("imaps.gmail.com", host);
+			properties.put("imaps.gmail.com", "993");
+			properties.put("mail.store.protocol", "imaps");
 			Session emailSession = Session.getDefaultInstance(properties);
 
-			// create the POP3 store object and connect with the pop server
-			Store store = emailSession.getStore("pop3s");
+			//create the GMAIL store object and connect with the pop server
+			Store store = emailSession.getStore("imaps");
 			store.connect(host, user, password);
 
 			// create the folder object and open it
-			Folder emailFolder = store.getFolder("INBOX");
+			Folder emailFolder = store.getFolder("Inbox");
 			emailFolder.open(Folder.READ_ONLY);
 
 			// retrieve the messages from the folder in an array and print it
 			Message[] messages = emailFolder.getMessages();
 			System.out.println("messages.length---" + messages.length);
 
-			// Message msg =
-			// emailFolder.getMessage(emailFolder.getMessageCount());
-			// Multipart mp = (Multipart) msg.getContent();
-			// BodyPart bp = mp.getBodyPart(0);
+			 Message msg =
+			 emailFolder.getMessage(emailFolder.getMessageCount());
+//			 Multipart mp = (Multipart) msg.getContent();
+//			 BodyPart bp = mp.getBodyPart(0);
 
 			for (int i = 0, n = messages.length; i < n; i++) {
 				Message message = messages[i];
+				Multipart mp = (Multipart) msg.getContent();
+				 BodyPart bp = mp.getBodyPart(0);
+
 				System.out.println("---------------------------------");
 				System.out.println("Email Number " + (i + 1));
 				System.out.println("Subject: " + message.getSubject());
 				System.out.println("From: " + message.getFrom()[0]);
-				System.out.println("Text: " + message.getContent());
+				System.out.println("Text: " + bp.getContent());
 
 			}
 
@@ -66,10 +71,10 @@ public class CheckingMailsEmanuel {
 
 		// mail server connection parameters
 
-		String host = "pop.gmail.com";
-		String mailStoreType = "pop3";
-		String username = "emanuelradac271093@gmail.com";
-		String password = "emanuelradac93";
+		String host = "mail.evozon.com";
+		String mailStoreType = "imaps";
+		String username = "petru.radac@evozon.com";
+		String password = "EmanuelRadac93!";
 
 		check(host, mailStoreType, username, password);
 
