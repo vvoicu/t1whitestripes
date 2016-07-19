@@ -78,4 +78,8 @@ public class MyRequestsSteps extends ScenarioSteps {
 	public void assertDate(String text) {
 		myRequestsPage.assertDate(text);
 	}
+	@Step
+	public void clickOnStatusElementInList(String elementText) {
+		myRequestsPage.clickOnStatusElementInList(elementText);
+	}
 }

@@ -1,68 +1,76 @@
 package utils;
 
-import java.io.IOException;
 import java.util.Properties;
+
 
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 
-import com.sun.mail.imap.IMAPFolder;
-
 public class ReadingEmail {
 
-	public static String mailUser = "andrada.maniac@evozon.com";
-	public static String mailPassword = "Musiccolor1!";
+	public static void check (String host, String storeType, String user, String password) {
+		try {
 
-	public static void main(String[] args) throws MessagingException, IOException {
+			Properties properties = new Properties();
 
-		IMAPFolder folder = null;
-		Store store = null;
+			properties.put("imaps.gmail.com", host);
+			properties.put("imaps.gmail.com", "993");
+			properties.put("mail.store.protocol", "imaps");
+			
+			Session emailSession = Session.getDefaultInstance(properties);
 
-		Properties props = System.getProperties();
-		props.setProperty("mail.store.protocol", "imaps");
+			Store store = emailSession.getStore("imaps");
+			store.connect(host, user, password);
 
-		Session session = Session.getDefaultInstance(props, null);
+	
+			Folder emailFolder = store.getFolder("Inbox");
+			emailFolder.open(Folder.READ_WRITE);
 
-		store = session.getStore("imaps");
-		store.connect("mail.evozon.com", 993, mailUser, mailPassword);
-
-		folder = (IMAPFolder) store.getFolder("inbox");
-
-		if (!folder.isOpen())
-			folder.open(Folder.READ_WRITE);
-
-		Message[] messages = folder.getMessages();
-		System.out.println("No of Messages : " + folder.getMessageCount());
-		System.out.println("No of Unread Messages : " + folder.getUnreadMessageCount());
-		System.out.println(messages.length);
-
-		printMessages(messages);
-	}
-
-	public static void printMessages(Message[] messages) throws MessagingException, IOException {
-
-		String subject = null;
-
-		for (int i = messages.length; i >= 0; i--) {
-			Message msg = messages[i];
-			System.out.println("*****************************************************************************");
+			
+			Message[] messages = emailFolder.getMessages();
 			System.out.println("messages.length---" + messages.length);
-			System.out.println("MESSAGE " + (i + 1) + ":");
 
-			subject = msg.getSubject();
+//			Message msg = emailFolder.getMessage(emailFolder.getMessageCount());
+			
+			for (int i = messages.length-1, n = messages.length; i < n; i++) {
+				Message message = messages[i];
+				
+				System.out.println("**************************************************");
+				System.out.println("Email Number " + (i + 1));
+				System.out.println("Subject: " + message.getSubject());
+				System.out.println("From: " + message.getFrom()[0]);
+				System.out.println("Text: " + message.getContent());
 
-			System.out.println("Subject: " + subject);
-			System.out.println("From: " + msg.getFrom()[0]);
-			System.out.println("To: " + msg.getAllRecipients()[0]);
-			System.out.println("Date: " + msg.getReceivedDate());
-			System.out.println("Size: " + msg.getSize());
-			System.out.println(msg.getFlags());
-			System.out.println("Body: \n" + msg.getContent());
-			System.out.println(msg.getContentType());
+			}
 
+			// close the store and folder objects
+			emailFolder.close(false);
+			store.close();
+
+		} catch (NoSuchProviderException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
+
+	public static void main(String[] args) {
+
+		// mail server connection parameters
+
+		String host = "mail.evozon.com";
+		String mailStoreType = "imaps";
+		String username = "andrada.maniac@evozon.com";
+		String password = "Musiccolor1!";
+
+		check(host, mailStoreType, username, password);
+
+	}
+
 }
